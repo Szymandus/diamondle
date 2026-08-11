@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="MARINA, marina diamandis, marina and the diamonds, diamonds, diamondle, connections, wordle, MARINA connections, MARINA wordle">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1">
+    <meta name="author" content="Szymon Rzeszutek">
+    <meta name="description" content="MARINA song games">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/homePage.css">
+    <link rel="stylesheet" href="./styles/mermaidvssailor.css">
+    <link rel="stylesheet" href="./styles/thefamilyjewels.css">
+    <link rel="stylesheet" href="./styles/electraheart.css">
+    <link rel="stylesheet" href="./styles/froot.css">
+    <link rel="stylesheet" href="./styles/lovefear.css">
+    <link rel="stylesheet" href="./styles/ancientdreamsinamodernland.css">
+    <link rel="stylesheet" href="./styles/princessofpower.css">
+    <title>DIAMONDLE</title>
+    <link rel="icon" type="image/x-icon" href="./styles/diamondleIcon.png">
+    <script src="styleSelect.js"></script>
+    <script>
+        function pageLoaded(){
+            if(getCookie("style") != ""){
+                currentStyle = getCookie("style");
+                document.getElementById("thefamilyjewelsStyle").id = currentStyle;
+                switch(currentStyle){
+                    case "mermaidvssailorStyle":{
+                        document.getElementById("styleOptions").value = "mvs";
+                        break;
+                    }
+                    case "thefamilyjewelsStyle":{
+                        document.getElementById("styleOptions").value = "tfj";
+                        break;
+                    }
+                    case "electraheartStyle":{
+                        document.getElementById("styleOptions").value = "eh";
+                        break;
+                    }
+                    case "frootStyle":{
+                        document.getElementById("styleOptions").value = "f";
+                        break;
+                    }
+                    case "lovefearStyle":{
+                        document.getElementById("styleOptions").value = "lf";
+                        break;
+                    }
+                    case "ancientdreamsinamodernlandStyle":{
+                        document.getElementById("styleOptions").value = "adiaml";
+                        break;
+                    }
+                    case "princessofpowerStyle":{
+                        document.getElementById("styleOptions").value = "pop";
+                        break;
+                    }
+                }
+            }else{
+                document.getElementById("styleOptions").value = "tfj";
+            }
+        }
+    </script>
+</head>
+<body onload="pageLoaded()" id="thefamilyjewelsStyle">
+    <div id="menuBar">
+        <div>DIAMONDLE</div>
+        <div id="styleSelect">
+            STYLE
+            <select id="styleOptions" onchange="selectStyle()"><option value="mvs">Mermaid vs Sailor</option><option value="tfj">The Family Jewels</option><option value="eh">Electra Heart</option><option value="f">FROOT</option><option value="lf">Love + Fear</option><option value="adiaml">Ancient Dreams In A Modern Land</option><option value="pop">PRINCESS OF POWER</option></select>
+        </div>
+    </div>
+    <div id="HOME">
+        <h1>SELECT GAMEMODE</h1>
+        <a href="./fillthegap.html">FILL THE GAP</a>
+        <a href="./connections.html">CONNECTIONS</a>
+        <a href="./guessthelyrics.html">GUESS THE LYRICS</a>
+    </div>
+    <div id="footer">
+        <div>MADE BY SZYMANDUS</div>
+    </div>
+</body>
+</html>

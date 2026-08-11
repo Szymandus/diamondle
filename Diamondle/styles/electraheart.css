@@ -1,0 +1,134 @@
+#electraheartStyle{
+    /*background: linear-gradient(0deg,slategray 0%, steelblue 25%, dimgray 75%, slategray 100%);
+    background-size: 7.5em 7.5em;
+    background-color: slategray;
+    opacity: 1;*/
+    background: linear-gradient(50deg, hotpink 0%, steelblue 25%, lightskyblue 50%, steelblue 75%, hotpink 100%);
+    background-size: 100vw;
+    font-family: Georgia, serif;
+    font-size: 35px;
+}
+#electraheartStyle a{
+    background-color: lightsteelblue;
+}
+#electraheartStyle a:hover{
+    background-color: plum;
+}
+#electraheartStyle #items>div{
+    background-color: lightsteelblue;
+    font-weight: bold;
+}
+#electraheartStyle #items>.selected{
+    background-color: plum;
+}
+#electraheartStyle #correct>div{
+    background-color: plum;
+}
+#electraheartStyle #correct>div>div{
+    overflow-x: hidden;
+}
+#electraheartStyle button{
+    background-color: lightsteelblue;
+}
+#electraheartStyle #hearts{
+    color: black;
+}
+#electraheartStyle #menuBar{
+    background-color: hotpink;
+}
+#electraheartStyle #footer{
+    background-color: hotpink;
+}
+#electraheartStyle #styleOptions{
+    background-color: lightskyblue;
+}
+#electraheartStyle #oneAway{
+    background-color: plum;
+}
+#electraheartStyle #howToPlay{
+    background-color: plum;
+}
+
+#electraheartStyle #streak{
+    font-size: 60px;
+}
+#electraheartStyle #maxStreak{
+    font-size: 65px;
+}
+#electraheartStyle #blankText{
+    font-size: 45px;
+}
+#electraheartStyle #blankInput{
+    font-size: 35px;
+}
+#electraheartStyle #blankEntry>button{
+    font-size: 35px;
+}
+#electraheartStyle #newGame{
+    font-size: 35px;
+}
+
+#electraheartStyle #score{
+    background-color: plum;
+}
+#electraheartStyle .blankTextUnguessed{
+    background-color: lightsteelblue;
+}
+#electraheartStyle .blankTextGuessed{
+    background-color: plum;
+}
+
+#electraheartStyle #gameOptions{
+    background-color: plum;
+}
+#electraheartStyle #gameOptionList div, #electraheartStyle #gameOptionList select{
+    background-color: lightsteelblue;
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    #electraheartStyle h1{
+        font-size: 50px;
+        text-align: center;
+    }
+
+    #electraheartStyle{
+        font-size: 40px;
+        background-size: 100vw;
+    }
+    #electraheartStyle #menuBar{
+        font-size: 80%;
+        flex-direction: column;
+    }
+    #electraheartStyle #items>div{
+        font-size: 70%;
+    }
+    #electraheartStyle #correct>div{
+        font-size: 70%;
+    }
+
+    #electraheartStyle #streak{
+        font-size: 50px;
+    }
+    #electraheartStyle #maxStreak{
+        font-size: 50px;
+    }
+    #electraheartStyle #blankText{
+        font-size: 35px;
+    }
+    #electraheartStyle #blankInput{
+        font-size: 25px;
+    }
+    #electraheartStyle #blankEntry>button{
+        font-size: 25px;
+    }
+    
+    #electraheartStyle .blankTextGuessed{
+        font-size: 30px;
+    }
+    
+    #electraheartStyle #gameOptions{
+        font-size: 25px;
+    }
+}

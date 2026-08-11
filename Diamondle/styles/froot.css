@@ -1,0 +1,170 @@
+#frootStyle{
+    background: conic-gradient(black, black, yellow, black, black, orange, black, black, red, black, black, purple, black, black, blue, black, black, green, black);
+    background-size: 100vw;
+    background-color: black;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 35px;
+}
+#frootStyle h1{
+    color: white;
+}
+#frootStyle a{
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+#frootStyle a:hover{
+    background: conic-gradient(yellow, orange, red, darkviolet, cyan, lime, yellow);
+    color: black;
+}
+#frootStyle #items>div{
+    background-color: black;
+    border: 0px;
+    margin: 0.75vw;
+}
+#frootStyle #items>div>div{
+    background: linear-gradient(to right, yellow, orange, red, darkviolet, cyan, lime);
+    background-clip: text;
+    color: transparent;
+}
+#frootStyle #items>.selected{
+    background: conic-gradient(yellow, orange, red, darkviolet, cyan, lime, yellow);
+}
+#frootStyle #items>.selected>div{
+    color: black;
+}
+#frootStyle #correct>div{
+    background: conic-gradient(yellow, orange, red, darkviolet, cyan, lime, yellow);
+}
+#frootStyle #correct>div>div{
+    overflow-x: hidden;
+}
+#frootStyle button{
+    height: 3.25vw;
+    background-color: black;
+    color: white;
+}
+#frootStyle #hearts{
+    font-size: 70px;
+    background: linear-gradient(to right, yellow, orange, red, darkviolet, cyan, lime);
+    background-clip: text;
+    color: transparent;
+}
+#frootStyle #menuBar{
+    background-color: black;
+    color: white;
+}
+#frootStyle #footer{
+    background-color: black;
+    color: white;
+}
+#frootStyle #styleOptions{
+    background: linear-gradient(to right, yellow, orange, red, purple, blue, green);
+}
+#frootStyle #oneAway{
+    background: conic-gradient(yellow, orange, red, darkviolet, cyan, lime, yellow);
+}
+#frootStyle #howToPlay{
+    background: conic-gradient(yellow, orange, red, darkviolet, cyan, lime, yellow);
+}
+#frootStyle #howToPlay>h1{
+    color: black;
+}
+
+#frootStyle #streak{
+    font-size: 60px;
+    color:white;
+}
+#frootStyle #maxStreak{
+    font-size: 65px;
+    color:white;
+}
+#frootStyle #blankText{
+    font-size: 45px;
+    color:white;
+}
+#frootStyle #blankInput{
+    font-size: 30px;
+}
+#frootStyle #blankEntry>button{
+    font-size: 30px;
+}
+#frootStyle #newGame{
+    font-size: 30px;
+    height: auto;
+}
+
+#frootStyle #score{
+    background: conic-gradient(yellow, orange, red, darkviolet, cyan, lime, yellow);
+}
+#frootStyle .blankTextUnguessed{
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+#frootStyle .blankTextGuessed{
+    background: conic-gradient(yellow, orange, red, darkviolet, cyan, lime, yellow);
+}
+
+#frootStyle #gameOptions{
+    background: conic-gradient(yellow, orange, red, darkviolet, cyan, lime, yellow);
+}
+#frootStyle #gameOptionList div, #frootStyle #gameOptionList select{
+    background-color: black;
+    color: white;
+    border-color: white;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    #frootStyle h1{
+        font-size: 60px;
+        text-align: center;
+    }
+
+    #frootStyle{
+        font-size: 40px;
+        background-size: 100vw;
+    }
+    #frootStyle #menuBar{
+        font-size: 80%;
+        flex-direction: column;
+    }
+    #frootStyle #items>div{
+        font-size: 80%;
+    }
+    #frootStyle #correct>div{
+        font-size: 80%;
+    }
+    #frootStyle #gameFinished>button{
+        height: auto;
+    }
+
+    #frootStyle #streak{
+        font-size: 40px;
+        color:white;
+    }
+    #frootStyle #maxStreak{
+        font-size: 40px;
+        color:white;
+    }
+    #frootStyle #blankText{
+        font-size: 30px;
+        color:white;
+    }
+    #frootStyle #blankInput{
+        font-size: 25px;
+    }
+    #frootStyle #blankEntry>button{
+        height: auto;
+        font-size: 25px;
+    }
+
+    #frootStyle .blankTextGuessed{
+        font-size: 25px;
+    }
+    #frootStyle #gameOptions{
+        font-size: 25px;
+    }
+}

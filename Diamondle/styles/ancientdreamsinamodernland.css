@@ -1,0 +1,166 @@
+#ancientdreamsinamodernlandStyle{
+    background: linear-gradient(90deg, transparent 45%, darkcyan 45%, darkcyan 55%, transparent 55%, transparent 20%, darkcyan 20%, darkcyan 30%,transparent 30%);
+    background-size: 1em 1em;
+    background-color: deepskyblue;
+    opacity: 1;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-size: 32.5px;
+    font-style: italic;
+    font-weight: 900;
+}
+#ancientdreamsinamodernlandStyle a{
+    background-color: peru;
+    border-image: linear-gradient(to right, forestgreen 10%, lightpink 15%, yellow 20%, lightpink 25%, darkgreen 30%, darkgreen 40%, hotpink 45%, yellow 50%, hotpink 55%, green 60%, green 70%, violet 75%, yellow 80%, violet 85%, darkgreen 90%) 1;
+}
+#ancientdreamsinamodernlandStyle a:hover{
+    background-color: sienna;
+}
+#ancientdreamsinamodernlandStyle #items>div{
+    background-color: peru;
+    border-image: linear-gradient(to right, forestgreen 10%, lightpink 15%, yellow 20%, lightpink 25%, darkgreen 30%, darkgreen 40%, hotpink 45%, yellow 50%, hotpink 55%, green 60%, green 70%, violet 75%, yellow 80%, violet 85%, darkgreen 90%) 1;
+    border-width: 0.25vw;
+    border-style: solid;
+}
+#ancientdreamsinamodernlandStyle #items>div>div{
+    background: linear-gradient(to right, darkorange, gold, limegreen, springgreen);
+    background-clip: text;
+    color: transparent;
+    padding-inline: 0.25vw;
+}
+#ancientdreamsinamodernlandStyle #items>.selected{
+    background-color: sienna;
+}
+#ancientdreamsinamodernlandStyle #correct>div{
+    background-color: sienna;
+}
+#ancientdreamsinamodernlandStyle #correct>div>div{
+    overflow-x: hidden;
+}
+#ancientdreamsinamodernlandStyle #correct>div>div{
+    background: linear-gradient(to right, darkorange, gold, limegreen, springgreen);
+    background-clip: text;
+    color: transparent;
+    padding-inline: 0.25vw;
+}
+#ancientdreamsinamodernlandStyle button{
+    height: 3.25vw;
+    background-color: peru;
+}
+#ancientdreamsinamodernlandStyle #hearts{
+    font-size: 75px;
+    line-height: 110%;
+    background: linear-gradient(to right, darkorange, gold, limegreen, springgreen);
+    background-clip: text;
+    color: transparent;
+    padding-inline: 0.25vw;
+    font-style: normal;
+}
+#ancientdreamsinamodernlandStyle #menuBar{
+    background-color: deepskyblue;
+}
+#ancientdreamsinamodernlandStyle #footer{
+    background-color: deepskyblue;
+}
+#ancientdreamsinamodernlandStyle #styleOptions{
+    background-color: darkcyan;
+}
+#ancientdreamsinamodernlandStyle #oneAway{
+    background-color: sienna;
+}
+#ancientdreamsinamodernlandStyle #howToPlay{
+    background-color: sienna;
+}
+
+#ancientdreamsinamodernlandStyle #streak{
+    font-size: 50px;
+}
+#ancientdreamsinamodernlandStyle #maxStreak{
+    font-size: 55px;
+}
+#ancientdreamsinamodernlandStyle #blankText{
+    font-size: 40px;
+}
+#ancientdreamsinamodernlandStyle #blankInput{
+    font-size: 30px;
+}
+#ancientdreamsinamodernlandStyle #blankEntry>button{
+    font-size: 30px;
+}
+#ancientdreamsinamodernlandStyle #newGame{
+    font-size: 30px;
+    height: auto;
+}
+
+#ancientdreamsinamodernlandStyle #score{
+    background-color: sienna;
+    border-image: linear-gradient(to right, forestgreen 10%, lightpink 15%, yellow 20%, lightpink 25%, darkgreen 30%, darkgreen 40%, hotpink 45%, yellow 50%, hotpink 55%, green 60%, green 70%, violet 75%, yellow 80%, violet 85%, darkgreen 90%) 1;
+}
+#ancientdreamsinamodernlandStyle .blankTextUnguessed{
+    background-color: peru;
+    border-image: linear-gradient(to right, forestgreen 10%, lightpink 15%, yellow 20%, lightpink 25%, darkgreen 30%, darkgreen 40%, hotpink 45%, yellow 50%, hotpink 55%, green 60%, green 70%, violet 75%, yellow 80%, violet 85%, darkgreen 90%) 1;
+}
+#ancientdreamsinamodernlandStyle .blankTextGuessed{
+    background-color: sienna;
+    border-image: linear-gradient(to right, forestgreen 10%, lightpink 15%, yellow 20%, lightpink 25%, darkgreen 30%, darkgreen 40%, hotpink 45%, yellow 50%, hotpink 55%, green 60%, green 70%, violet 75%, yellow 80%, violet 85%, darkgreen 90%) 1;
+}
+
+#ancientdreamsinamodernlandStyle #gameOptions{
+    background-color: sienna;
+    border-image: linear-gradient(to right, forestgreen 10%, lightpink 15%, yellow 20%, lightpink 25%, darkgreen 30%, darkgreen 40%, hotpink 45%, yellow 50%, hotpink 55%, green 60%, green 70%, violet 75%, yellow 80%, violet 85%, darkgreen 90%) 1;
+}
+#ancientdreamsinamodernlandStyle #gameOptionList div, #ancientdreamsinamodernlandStyle #gameOptionList select{
+    background-color: peru;
+    border-image: linear-gradient(to right, forestgreen 10%, lightpink 15%, yellow 20%, lightpink 25%, darkgreen 30%, darkgreen 40%, hotpink 45%, yellow 50%, hotpink 55%, green 60%, green 70%, violet 75%, yellow 80%, violet 85%, darkgreen 90%) 1;
+    font-style: italic;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 1000px) {
+    #ancientdreamsinamodernlandStyle h1{
+        font-size: 55px;
+        text-align: center;
+    }
+
+    #ancientdreamsinamodernlandStyle{
+        font-size: 40px;
+    }
+    #ancientdreamsinamodernlandStyle #menuBar{
+        font-size: 70%;
+        flex-direction: column;
+    }
+    #ancientdreamsinamodernlandStyle #items>div{
+        font-size: 70%;
+    }
+    #ancientdreamsinamodernlandStyle #correct>div{
+        font-size: 70%;
+    }
+    #ancientdreamsinamodernlandStyle #gameFinished>button{
+        height: auto;
+    }
+
+    #ancientdreamsinamodernlandStyle #streak{
+        font-size: 40px;
+    }
+    #ancientdreamsinamodernlandStyle #maxStreak{
+        font-size: 40px;
+    }
+    #ancientdreamsinamodernlandStyle #blankText{
+        font-size: 30px;
+    }
+    #ancientdreamsinamodernlandStyle #blankInput{
+        font-size: 25px;
+    }
+    #ancientdreamsinamodernlandStyle #blankEntry>button{
+        font-size: 25px;
+        height: auto;
+    }
+
+    #ancientdreamsinamodernlandStyle .blankTextGuessed{
+        font-size: 25px;
+    }
+    #ancientdreamsinamodernlandStyle #gameOptions{
+        font-size: 25px;
+    }
+}

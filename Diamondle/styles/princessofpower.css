@@ -1,0 +1,162 @@
+@font-face {
+    font-family: Terra Ignota;
+    src: url(./TerraIgnota.ttf);
+}
+#princessofpowerStyle{
+    background: linear-gradient(165deg, #10252a 20%, darkslategray 40%, cadetblue 60%, darkslategray 100%);
+    background-size: 100vw;
+    font-family: Terra Ignota, Times New Roman, Segoe UI;
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: -0.4px;
+    line-height: 40px;
+    color: cadetblue;
+}
+#princessofpowerStyle a{
+    background-color: lightsalmon;
+    border-image: linear-gradient(to right, hotpink 0%, pink 20%, palevioletred 40%, orchid 60%, violet 80%, plum 100%) 1;
+}
+#princessofpowerStyle a:hover{
+    background-color: lightpink;
+}
+#princessofpowerStyle #items>div{
+    background-color: lightsalmon;
+    border-image: linear-gradient(to right, hotpink 0%, pink 20%, palevioletred 40%, orchid 60%, violet 80%, plum 100%) 1;
+    border-width: 0.25vw;
+    border-style: solid;
+    color: black;
+}
+#princessofpowerStyle #items>.selected{
+    background-color: lightpink;
+}
+#princessofpowerStyle #correct>div{
+    background-color: lightpink;
+    border-image: linear-gradient(to right, hotpink 0%, pink 20%, palevioletred 40%, orchid 60%, violet 80%, plum 100%) 1;
+    border-width: 0.25vw;
+    border-style: solid;
+    color: black;
+}
+#princessofpowerStyle #correct>div>div{
+    overflow-x: hidden;
+    line-height: 135%;
+}
+#princessofpowerStyle button{
+    background-color: lightsalmon;
+}
+#princessofpowerStyle #hearts{
+    color: indianred;
+    line-height: 130%;
+}
+#princessofpowerStyle #menuBar{
+    background-color: #10252a;
+}
+#princessofpowerStyle #footer{
+    background-color: #10252a;
+}
+#princessofpowerStyle #styleOptions{
+    background-color: darkslategray;
+}
+#princessofpowerStyle #oneAway{
+    background-color: lightpink;
+}
+#princessofpowerStyle #howToPlay{
+    color: black;
+    background-color: lightpink;
+}
+#princessofpowerStyle #gameFinished{
+    line-height: 150%;
+}
+#princessofpowerStyle #gameResult{
+    font-size: 5.5vw;
+    line-height: 135%;
+}
+
+#princessofpowerStyle #streak{
+    font-size: 70px;
+}
+#princessofpowerStyle #maxStreak{
+    font-size: 75px;
+}
+#princessofpowerStyle #blankText{
+    font-size: 55px;
+}
+#princessofpowerStyle #blankInput{
+    font-size: 35px;
+}
+#princessofpowerStyle #blankEntry>button{
+    font-size: 35px;
+}
+#princessofpowerStyle #newGame{
+    font-size: 35px;
+}
+
+#princessofpowerStyle #score{
+    background-color: lightpink;
+    border-image: linear-gradient(to right, hotpink 0%, pink 20%, palevioletred 40%, orchid 60%, violet 80%, plum 100%) 1;
+}
+#princessofpowerStyle .blankTextUnguessed{
+    background-color: lightsalmon;
+    border-image: linear-gradient(to right, hotpink 0%, pink 20%, palevioletred 40%, orchid 60%, violet 80%, plum 100%) 1;
+}
+#princessofpowerStyle .blankTextGuessed{
+    background-color: lightpink;
+    border-image: linear-gradient(to right, hotpink 0%, pink 20%, palevioletred 40%, orchid 60%, violet 80%, plum 100%) 1;
+}
+
+#princessofpowerStyle #gameOptions{
+    background-color: lightpink;
+    border-image: linear-gradient(to right, hotpink 0%, pink 20%, palevioletred 40%, orchid 60%, violet 80%, plum 100%) 1;
+}
+#princessofpowerStyle #gameOptionList div, #princessofpowerStyle #gameOptionList select{
+    background-color: lightsalmon;
+    border-image: linear-gradient(to right, hotpink 0%, pink 20%, palevioletred 40%, orchid 60%, violet 80%, plum 100%) 1;
+    font-weight: bold;
+    color: cadetblue;
+    font-family: Terra Ignota, Times New Roman, Segoe UI;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    #princessofpowerStyle h1{
+        font-size: 65px;
+        text-align: center;
+    }
+
+    #princessofpowerStyle{
+        font-size: 55px;
+        background-size: 100vw;
+    }
+    #princessofpowerStyle #menuBar{
+        font-size: 60%;
+        flex-direction: column;
+    }
+    #princessofpowerStyle #items>div{
+        font-size: 80%;
+    }
+    #princessofpowerStyle #correct>div{
+        font-size: 80%;
+    }
+
+    #princessofpowerStyle #streak{
+        font-size: 50px;
+    }
+    #princessofpowerStyle #maxStreak{
+        font-size: 50px;
+    }
+    #princessofpowerStyle #blankText{
+        font-size: 45px;
+    }
+    #princessofpowerStyle #blankInput{
+        font-size: 25px;
+    }
+    #princessofpowerStyle #blankEntry>button{
+        font-size: 25px;
+    }
+
+    #princessofpowerStyle .blankTextGuessed{
+        font-size: 40px;
+    }
+    #princessofpowerStyle #gameOptions{
+        font-size: 30px;
+    }
+}

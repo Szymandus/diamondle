@@ -1,0 +1,168 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#GAME{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+}
+
+#gameOptions{
+    width: 80vw;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 2.5vh;
+    padding-block: 1vh;
+}
+
+#gameOptionList{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 1vh;
+}
+
+#gameOptionList div, #gameOptionList select{
+    width: 35vw;
+    text-align: center;
+    user-select: none;
+    border: .2vw solid black;
+}
+
+a:visited{
+    color: black;
+    text-decoration: none;
+}
+a:link{
+    color: black;
+    text-decoration: none;
+}
+a{
+    padding: 1vh;
+    border: 0.15vw solid black;
+    user-select: none;
+}
+
+#menuBar{
+    padding: 3.5vh;
+    display: flex;
+    text-align: center;
+    height: 5vh;
+    align-items: center;
+    justify-content: space-around;
+}
+#menuBar #styleSelect{
+    display: flex;
+    flex-direction: column;
+}
+#styleOptions{
+    text-align: center;
+    font-size: 20px;
+}
+#footer{
+    padding: 3vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 5vh;
+    align-items: center;
+    margin-top: 2.5vh;
+}
+
+#lyrics{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    justify-self: center;
+    align-self: center;
+    justify-items: left;
+}
+#score{
+    text-align: center;
+    width: 25vw;
+    margin-bottom: 2.5vh;
+    padding-block: 1vh;
+}
+#blankEntry{
+    position: sticky;
+    top: 5vh;
+}
+.blankText{
+    width: 15vw;
+    height: 5vh;
+    margin-block: 1vh;
+    margin-inline: .25vw;
+    text-align: center;
+    border: .25vw solid black;
+    overflow: hidden;
+}
+.blankTextUnguessed>span{
+    visibility: hidden;
+}
+.blankTextGuessed>span{
+    visibility: visible;
+}
+#newGame{
+    position: sticky;
+    top: 5vh;
+}
+
+#howToPlay{
+    text-align: center;
+    width: 75vw;
+    justify-self: center;
+    padding-block: 2.5vh;
+}
+
+@media screen and (max-width: 1000px) {
+    #gameOptions{
+        width: 90vw;
+        margin-block: 1.5vh;
+    }
+    #gameOptionList{
+        flex-direction: column;
+        align-items: center;
+    }
+    #gameOptionList div, #gameOptionList select{
+        width: 75vw;
+    }
+    #menuBar{
+        width: 100%;
+        padding: 0;
+        height: 25vh;
+        flex-wrap: wrap;
+        font-size: 30px;
+    }
+    #menuBar>div{
+        text-wrap: wrap;
+    }
+    #styleOptions{
+        font-size: 15px;
+    }
+
+    #score{
+        width: 100vw;
+    }
+    #lyrics{
+        width: 90vw;
+    }
+    .blankText{
+        width: 43vw;
+        margin-inline: .5vw;
+        border: .5vw solid black;
+    }
+    #blankEntry{
+        display: flex;
+        flex-direction: column;
+    }
+    #howToPlay{
+        width: 100vw;
+    }
+}

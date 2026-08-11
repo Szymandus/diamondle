@@ -1,0 +1,147 @@
+#lovefearStyle{
+    background: linear-gradient(65deg, #000000 10%, transparent 10%, transparent 90%, #000000  90%, #000000 100%),
+    linear-gradient(115deg, #000000 10%, transparent 10%, transparent 90%, #000000  90%, #000000 100%);
+    background-size: 5em 5em;
+    background-color: lightgray;
+    opacity: 1;
+    font-family: Didot, serif;
+    font-size: 35px;
+}
+#lovefearStyle h1{
+    color: white;
+}
+#lovefearStyle a{
+    background-color: white;
+}
+#lovefearStyle a:hover{
+    background-color: silver;
+}
+#lovefearStyle #items>div{
+    background-color: white;
+    font-weight: bold;
+}
+#lovefearStyle #items>.selected{
+    background-color: silver;
+    opacity: 1;
+}
+#lovefearStyle #correct>div{
+    background-color: silver;
+}
+#lovefearStyle #correct>div>div{
+    overflow-x: hidden;
+}
+#lovefearStyle button{
+    background-color: white;
+}
+#lovefearStyle #hearts{
+    background: linear-gradient(to right, violet 25%, dodgerblue 25%, dodgerblue 50%, limegreen 50%, limegreen 75%, gold 75%);
+    background-clip: text;
+    color: transparent;
+}
+#lovefearStyle #menuBar{
+    background-color: lightgray;
+}
+#lovefearStyle #footer{
+    background-color: lightgray;
+}
+#lovefearStyle #styleOptions{
+    background-color: white;
+}
+#lovefearStyle #oneAway{
+    background-color: silver;
+}
+#lovefearStyle #howToPlay{
+    background-color: silver;
+}
+#lovefearStyle #howToPlay>h1{
+    color: black;
+}
+
+#lovefearStyle #streak{
+    font-size: 60px;
+    color: white;
+}
+#lovefearStyle #maxStreak{
+    font-size: 65px;
+    color:white;
+}
+#lovefearStyle #blankText{
+    font-size: 45px;
+    color: white;
+}
+#lovefearStyle #blankInput{
+    font-size: 30px;
+}
+#lovefearStyle #blankEntry>button{
+    font-size: 30px;
+}
+#lovefearStyle #newGame{
+    font-size: 30px;
+}
+
+#lovefearStyle #score{
+    background-color: silver;
+}
+#lovefearStyle .blankTextUnguessed{
+    background-color: white;
+}
+#lovefearStyle .blankTextGuessed{
+    background-color: silver;
+}
+
+#lovefearStyle #gameOptions{
+    background-color: silver;
+}
+#lovefearStyle #gameOptionList div, #lovefearStyle #gameOptionList select{
+    background-color: white;
+    font-family: Didot, serif;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    #lovefearStyle h1{
+        font-size: 55px;
+        text-align: center;
+    }
+
+    #lovefearStyle{
+        font-size: 40px;
+        background-size: 3em 3em;
+    }
+    #lovefearStyle #menuBar{
+        font-size: 70%;
+        flex-direction: column;
+    }
+    #lovefearStyle #items>div{
+        font-size: 80%;
+    }
+    #lovefearStyle #correct>div{
+        font-size: 80%;
+    }
+
+    #lovefearStyle #streak{
+        font-size: 40px;
+        color: white;
+    }
+    #lovefearStyle #maxStreak{
+        font-size: 40px;
+        color: white;
+    }
+    #lovefearStyle #blankText{
+        font-size: 35px;
+        color: white;
+    }
+    #lovefearStyle #blankInput{
+        font-size: 25px;
+    }
+    #lovefearStyle #blankEntry>button{
+        font-size: 25px;
+    }
+
+    #lovefearStyle .blankTextGuessed{
+        font-size: 30px;
+    }
+    #lovefearStyle #gameOptions{
+        font-size: 25px;
+    }
+}

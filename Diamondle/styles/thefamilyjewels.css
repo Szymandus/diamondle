@@ -1,0 +1,130 @@
+#thefamilyjewelsStyle{
+    background: linear-gradient(45deg, darkolivegreen 25%, transparent 25%), linear-gradient(315deg, darkolivegreen 25%, transparent 25%),
+    linear-gradient(45deg, transparent 24%,olive 25%, olive 45%, transparent 45%),
+    linear-gradient(315deg, transparent 24%,olive 25%, olive 45%, transparent 45%);
+    background-size: 5em 5em;
+    background-color: darkolivegreen;
+    opacity: 1;
+    font-family: "Brush Script MT", "Comic Sans MS", "sans-serif";
+    font-size: 32.5px;
+}
+#thefamilyjewelsStyle a{
+    background-color: tan;
+}
+#thefamilyjewelsStyle a:hover{
+    background-color: lightpink;
+}
+#thefamilyjewelsStyle #items>div{
+    background-color: tan;
+    font-size: 42.5px;
+}
+#thefamilyjewelsStyle #items>.selected{
+    background-color: lightpink;
+}
+#thefamilyjewelsStyle #correct>div{
+    background-color: lightpink;
+    font-size: 42.5px;
+}
+#thefamilyjewelsStyle #correct>div>div{
+    overflow-x: hidden;
+}
+#thefamilyjewelsStyle button{
+    background-color: tan;
+}
+#thefamilyjewelsStyle #hearts{
+    color: lightcoral;
+}
+#thefamilyjewelsStyle #menuBar{
+    background-color: darkolivegreen;
+}
+#thefamilyjewelsStyle #footer{
+    background-color: darkolivegreen;
+}
+#thefamilyjewelsStyle #styleOptions{
+    background-color: olive;
+}
+#thefamilyjewelsStyle #oneAway{
+    background-color: lightpink;
+}
+#thefamilyjewelsStyle #howToPlay{
+    background-color: lightpink;
+}
+
+#thefamilyjewelsStyle #streak{
+    font-size: 65px;
+}
+#thefamilyjewelsStyle #maxStreak{
+    font-size: 70px;
+}
+#thefamilyjewelsStyle #blankText{
+    font-size: 50px;
+}
+#thefamilyjewelsStyle #blankInput{
+    font-size: 35px;
+}
+#thefamilyjewelsStyle #blankEntry>button{
+    font-size: 35px;
+}
+#thefamilyjewelsStyle #newGame{
+    font-size: 35px;
+}
+
+#thefamilyjewelsStyle #score{
+    background-color: lightpink;
+}
+#thefamilyjewelsStyle .blankTextUnguessed{
+    background-color: tan;
+}
+#thefamilyjewelsStyle .blankTextGuessed{
+    background-color: lightpink;
+}
+
+#thefamilyjewelsStyle #gameOptions{
+    background-color: lightpink;
+}
+#thefamilyjewelsStyle #gameOptionList div, #thefamilyjewelsStyle #gameOptionList select{
+    background-color: tan;
+    font-family: "Brush Script MT", "Comic Sans MS", "sans-serif";
+    font-size: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    #thefamilyjewelsStyle h1{
+        font-size: 55px;
+        text-align: center;
+    }
+
+    #thefamilyjewelsStyle{
+        font-size: 40px;
+    }
+    #thefamilyjewelsStyle #menuBar{
+        font-size: 80%;
+        flex-direction: column;
+    }
+    #thefamilyjewelsStyle #items>div{
+        font-size: 100%;
+    }
+    #thefamilyjewelsStyle #correct>div{
+        font-size: 100%;
+    }
+
+    #thefamilyjewelsStyle #streak{
+        font-size: 50px;
+    }
+    #thefamilyjewelsStyle #maxStreak{
+        font-size: 50px;
+    }
+    #thefamilyjewelsStyle #blankText{
+        font-size: 40px;
+    }
+    #thefamilyjewelsStyle #blankInput{
+        font-size: 25px;
+    }
+    #thefamilyjewelsStyle #blankEntry>button{
+        font-size: 25px;
+    }
+
+    #thefamilyjewelsStyle #gameOptions{
+        font-size: 25px;
+    }
+}

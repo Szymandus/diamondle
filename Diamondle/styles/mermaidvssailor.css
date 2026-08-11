@@ -1,0 +1,135 @@
+@font-face {
+    font-family: SantaFe;
+    src: url(./SantaFeComRg.TTF);
+}
+#mermaidvssailorStyle{
+    background: linear-gradient(345deg, transparent 10%, dimgray 13%, dimgray 20%, transparent 25%, transparent 30%, dimgray 33%, dimgray 40%, transparent 45%, transparent 50%, dimgray 53%, dimgray 60%, transparent 65%, transparent 70%, dimgray 73%, dimgray 80%, transparent 85%, transparent 90%),
+    linear-gradient(30deg, transparent 10%, dimgray 13%, dimgray 20%, transparent 30%, dimgray 33%, dimgray 40%, transparent 50%, dimgray 53%, dimgray 60%, transparent 70%, dimgray 73%, dimgray 80%, transparent 90%),
+    linear-gradient(135deg, transparent 5%, limegreen 5%, limegreen 15%, transparent 15%, transparent 25%, darkviolet 25%, darkviolet 35%, transparent 35%, transparent 45%, yellow 45%, yellow 55%, transparent 55%, transparent 65%, dodgerblue 65%, dodgerblue 75%, transparent 75%, transparent 85%, hotpink 85%, hotpink 95%, transparent 95%),
+    linear-gradient(45deg, transparent 5%, hotpink 5%, hotpink 15%, transparent 15%, transparent 25%, blue 25%, blue 35%, transparent 35%, transparent 45%, yellow 45%, yellow 55%, transparent 55%, transparent 65%, darkviolet 65%, darkviolet 75%, transparent 75%, transparent 85%, limegreen 85%, limegreen 95%, transparent 95%);
+    background-size: 100vw;
+    background-color: dimgray;
+    opacity: 1;
+    font-family: SantaFe, Times New Roman, Segoe UI;
+    font-size: 32.5px;
+}
+#mermaidvssailorStyle a{
+    background-color: darkgray;
+}
+#mermaidvssailorStyle a:hover{
+    background-color: gainsboro;
+}
+#mermaidvssailorStyle #items>div{
+    background-color: darkgray;
+    font-size: 42.5px;
+}
+#mermaidvssailorStyle #items>.selected{
+    background-color: gainsboro;
+}
+#mermaidvssailorStyle #correct>div{
+    background-color: gainsboro;
+    font-size: 42.5px;
+}
+#mermaidvssailorStyle #correct>div>div{
+    overflow-x: hidden;
+}
+#mermaidvssailorStyle button{
+    background-color: darkgray;
+}
+#mermaidvssailorStyle #hearts{
+    color: gray;
+}
+#mermaidvssailorStyle #menuBar{
+    background-color: dimgray;
+}
+#mermaidvssailorStyle #footer{
+    background-color: dimgray;
+}
+#mermaidvssailorStyle #styleOptions{
+    background-color: gray;
+}
+#mermaidvssailorStyle #oneAway{
+    background-color: gainsboro;
+}
+#mermaidvssailorStyle #howToPlay{
+    background-color: gainsboro;
+}
+
+#mermaidvssailorStyle #streak{
+    font-size: 65px;
+}
+#mermaidvssailorStyle #maxStreak{
+    font-size: 70px;
+}
+#mermaidvssailorStyle #blankText{
+    font-size: 50px;
+}
+#mermaidvssailorStyle #blankInput{
+    font-size: 35px;
+}
+#mermaidvssailorStyle #blankEntry>button{
+    font-size: 35px;
+}
+#mermaidvssailorStyle #newGame{
+    font-size: 35px;
+}
+
+#mermaidvssailorStyle #score{
+    background-color: gainsboro;
+}
+#mermaidvssailorStyle .blankTextUnguessed{
+    background-color: darkgray;
+}
+#mermaidvssailorStyle .blankTextGuessed{
+    background-color: gainsboro;
+}
+
+#mermaidvssailorStyle #gameOptions{
+    background-color: gainsboro;
+}
+#mermaidvssailorStyle #gameOptionList div, #mermaidvssailorStyle #gameOptionList select{
+    background-color: darkgray;
+    font-family: SantaFe, Times New Roman, Segoe UI;
+    font-size: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+    #mermaidvssailorStyle h1{
+        font-size: 55px;
+        text-align: center;
+    }
+
+    #mermaidvssailorStyle{
+        font-size: 40px;
+    }
+    #mermaidvssailorStyle #menuBar{
+        font-size: 80%;
+        flex-direction: column;
+    }
+    #mermaidvssailorStyle #items>div{
+        font-size: 100%;
+    }
+    #mermaidvssailorStyle #correct>div{
+        font-size: 100%;
+    }
+
+    #mermaidvssailorStyle #streak{
+        font-size: 50px;
+    }
+    #mermaidvssailorStyle #maxStreak{
+        font-size: 50px;
+    }
+    #mermaidvssailorStyle #blankText{
+        font-size: 40px;
+    }
+    #mermaidvssailorStyle #blankInput{
+        font-size: 25px;
+    }
+    #mermaidvssailorStyle #blankEntry>button{
+        font-size: 25px;
+    }
+
+    #mermaidvssailorStyle #gameOptions{
+        font-size: 25px;
+    }
+}

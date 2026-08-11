@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="MARINA, marina diamandis, marina and the diamonds, diamonds, diamondle, connections, wordle, MARINA connections, MARINA wordle">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1">
+    <meta name="author" content="Szymon Rzeszutek">
+    <meta name="description" content="MARINA songs connections game">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/connections.css">
+    <link rel="stylesheet" href="./styles/mermaidvssailor.css">
+    <link rel="stylesheet" href="./styles/thefamilyjewels.css">
+    <link rel="stylesheet" href="./styles/electraheart.css">
+    <link rel="stylesheet" href="./styles/froot.css">
+    <link rel="stylesheet" href="./styles/lovefear.css">
+    <link rel="stylesheet" href="./styles/ancientdreamsinamodernland.css">
+    <link rel="stylesheet" href="./styles/princessofpower.css">
+    <title>DIAMONDLE</title>
+    <link rel="icon" type="image/x-icon" href="./styles/diamondleIcon.png">
+    <script src="styleSelect.js"></script>
+    <script>
+
+        function pageLoaded(){
+            if(getCookie("style") != ""){
+                currentStyle = getCookie("style");
+                document.getElementById("thefamilyjewelsStyle").id = currentStyle;
+                switch(currentStyle){
+                    case "mermaidvssailorStyle":{
+                        document.getElementById("styleOptions").value = "mvs";
+                        break;
+                    }
+                    case "thefamilyjewelsStyle":{
+                        document.getElementById("styleOptions").value = "tfj";
+                        break;
+                    }
+                    case "electraheartStyle":{
+                        document.getElementById("styleOptions").value = "eh";
+                        break;
+                    }
+                    case "frootStyle":{
+                        document.getElementById("styleOptions").value = "f";
+                        break;
+                    }
+                    case "lovefearStyle":{
+                        document.getElementById("styleOptions").value = "lf";
+                        break;
+                    }
+                    case "ancientdreamsinamodernlandStyle":{
+                        document.getElementById("styleOptions").value = "adiaml";
+                        break;
+                    }
+                    case "princessofpowerStyle":{
+                        document.getElementById("styleOptions").value = "pop";
+                        break;
+                    }
+                }
+            }else{
+                document.getElementById("styleOptions").value = "tfj";
+            }
+            start();
+        }
+
+        class theme{
+            constructor(difficulty, theme){
+                this.difficulty = difficulty;
+                this.theme = theme;
+            }
+        }
+
+        class answer{
+            constructor(matchingThemes, value){
+                this.matchingThemes = matchingThemes;
+                this.value = value;
+            }
+        }
+
+        const albumThemes = [new theme(1, "Singles"), new theme(1, 'The Family Jewels tracks'), new theme(1, "Electra Heart tracks"), new theme(1, "FROOT tracks"), new theme(1, "Love + Fear tracks"), new theme(1, "Ancient Dreams In A Modern Land tracks"), new theme(1, "PRINCESS OF POWER tracks")];
+        const albumSubThemes = [new theme(1, "Title Tracks"), new theme(2, "L+F Love tracks"), new theme(2, "L+F Fear tracks"), new theme(3, "EH Housewife archetype"), new theme(3, "EH Beauty Queen archetype"), new theme(3, "EH Homewrecker archetype"), new theme(3, "EH Idle Teen archetype"), new theme(2, "EH: The Archetypes tracks"), new theme(2, "FROOT of the month songs"), new theme(1, "Deluxe tracks")];
+        const tourThemes = [new theme(4, "Tour enchores"), new theme(1, "The Family Jewels Tour setlist"), new theme(4, "Lonely Hearts Club Tour setlist"), new theme(4, "Neon Nature Tour setlist"), new theme(4, "LOVE + FEAR Tour setlist"), new theme(4, "Ancient Dreams in a Modern Land Tour setlist")];
+        const unknownAlbumThemes = [new theme(2, "Mermaid vs Sailor tracks"), new theme(2, "Unreleased songs"), new theme(3, "Die Life tracks")];
+        const songTrivia = [new theme(2, "Songs longer than 4:30"), new theme(1, "Songs with music videos"), new theme(3, "Songs with accoustic versions"), new theme(3, "Songs criticizing humans/the world"), new theme(3, "Songs with remixes"), new theme(3, "Promotional singles")];
+        const lyricsTrivia = [new theme(4, "Songs that mention drinking"), new theme(5, "Songs that mention fakeness"), new theme(4, "Songs that mention freedom/being free"), new theme(5, "Songs that mention Hell/Devils"), new theme(4, "Songs that mention dreams/dreaming"), new theme(5, "Songs that mention family"), new theme(4, "Songs that have the word 'star'"), new theme(4, "Songs that mention flowers"), new theme(4, "Songs that have the word 'sky'"), new theme(4, "Songs that mention fear/being scared"), new theme(4, "Songs that have the word 'happy'"), new theme(4, "Songs that have the word 'hope'"), new theme(4, "Songs that have the word 'love'"), new theme(5, "Songs that mention Heaven/Angels"), new theme(4, "Songs that have the word 'God'"), new theme(3, "Songs with curse words"), new theme(4, "Songs mentioning black/white"), new theme(4, "Songs mentioning colors in the rainbow")];
+        const titleTrivia = [new theme(2, "Titles with punctuation marks"), new theme(1, "Titles with only one word"), new theme(1, "Titles with only two words"), new theme(1, "Titles with three or more words")];
+
+        const answers = [new answer([albumThemes[1], lyricsTrivia[0], lyricsTrivia[4], lyricsTrivia[10], lyricsTrivia[16], titleTrivia[0], titleTrivia[3], tourThemes[0], tourThemes[1], tourThemes[4], tourThemes[5]], "Are You Satisfied?"), new answer([albumThemes[1], albumThemes[0], songTrivia[1], lyricsTrivia[0], lyricsTrivia[6], lyricsTrivia[8], lyricsTrivia[13], titleTrivia[1], tourThemes[1], tourThemes[2]], "Shampain"), new answer([albumThemes[1], albumThemes[0], songTrivia[1], songTrivia[4], lyricsTrivia[12], titleTrivia[3], tourThemes[1], tourThemes[2], tourThemes[3], tourThemes[4], tourThemes[5]], "I Am Not A Robot"), new answer([albumThemes[1], songTrivia[3], titleTrivia[1], tourThemes[1]], "Girls"), new answer([albumThemes[1], albumThemes[0], songTrivia[1], lyricsTrivia[4], lyricsTrivia[12], titleTrivia[0], titleTrivia[2], tourThemes[0], tourThemes[1], tourThemes[2], tourThemes[3]], "Mowgli's Road"), new answer([albumThemes[1], albumThemes[0], songTrivia[1], lyricsTrivia[2], lyricsTrivia[12], lyricsTrivia[17], titleTrivia[1], tourThemes[1], tourThemes[2], tourThemes[3]], "Obsessions"), new answer([albumThemes[1], albumThemes[0], songTrivia[1], songTrivia[2], songTrivia[3], songTrivia[4], lyricsTrivia[14], titleTrivia[1], tourThemes[0], tourThemes[1], tourThemes[2], tourThemes[3], tourThemes[4], tourThemes[5]], "Hollywood"), new answer([albumThemes[1], lyricsTrivia[9], lyricsTrivia[15], titleTrivia[2], tourThemes[1]], "The Outsider"), new answer([albumThemes[1], unknownAlbumThemes[0], lyricsTrivia[3], lyricsTrivia[15], titleTrivia[3]], "Hermit the Frog"), new answer([albumThemes[1], albumThemes[0], songTrivia[1], lyricsTrivia[12], titleTrivia[0], titleTrivia[2], tourThemes[1], tourThemes[2], tourThemes[3], tourThemes[5]], "Oh No!"), new answer([albumThemes[1], lyricsTrivia[2], lyricsTrivia[8], lyricsTrivia[12], titleTrivia[1], tourThemes[1]], "Rootless"), new answer([albumThemes[1], lyricsTrivia[3], lyricsTrivia[6], lyricsTrivia[8], titleTrivia[1], tourThemes[1], tourThemes[2]], "Numb"), new answer([albumThemes[1], lyricsTrivia[5], lyricsTrivia[16], titleTrivia[1], tourThemes[1]], "Guilty"), new answer([albumThemes[1], albumSubThemes[0], lyricsTrivia[5], lyricsTrivia[12], titleTrivia[3]], "The Family Jewels"), new answer([albumThemes[1], songTrivia[1], unknownAlbumThemes[0], lyricsTrivia[2], lyricsTrivia[15], titleTrivia[1], tourThemes[1]], "Seventeen"),
+        new answer([albumThemes[2], albumSubThemes[6], lyricsTrivia[12], lyricsTrivia[15], titleTrivia[2], tourThemes[2], tourThemes[3], tourThemes[4], tourThemes[5]], "Bubblegum Bitch"), new answer([albumThemes[2], albumThemes[0], songTrivia[1], songTrivia[2], songTrivia[4], albumSubThemes[4], albumSubThemes[7], lyricsTrivia[4], titleTrivia[1], tourThemes[2], tourThemes[3], tourThemes[4]], "Primadonna"), new answer([albumThemes[2], songTrivia[1], songTrivia[2], albumSubThemes[3], albumSubThemes[7], lyricsTrivia[0], lyricsTrivia[2], lyricsTrivia[12], titleTrivia[1], tourThemes[2], tourThemes[3]], "Lies"), new answer([albumThemes[2], songTrivia[2], albumSubThemes[5], lyricsTrivia[4], lyricsTrivia[10], lyricsTrivia[12], titleTrivia[1], tourThemes[2]], "Homewrecker"), new answer([albumThemes[2], songTrivia[2], lyricsTrivia[0], lyricsTrivia[2], lyricsTrivia[3], lyricsTrivia[5], lyricsTrivia[12], lyricsTrivia[15], titleTrivia[2], tourThemes[2]], "Starring Role"), new answer([albumThemes[2], songTrivia[1], albumSubThemes[4], albumSubThemes[7], lyricsTrivia[4], lyricsTrivia[9], lyricsTrivia[11], titleTrivia[3], tourThemes[2]], "The State of Dreaming"), new answer([albumThemes[2], albumThemes[0], songTrivia[1], unknownAlbumThemes[2], albumSubThemes[5], albumSubThemes[7], lyricsTrivia[12], titleTrivia[0], titleTrivia[3], tourThemes[2]], "Power & Control"), new answer([albumThemes[2], unknownAlbumThemes[2], lyricsTrivia[8], lyricsTrivia[12], lyricsTrivia[16], titleTrivia[2]], "Living Dead"), new answer([albumThemes[2], albumSubThemes[6], lyricsTrivia[1], lyricsTrivia[14], titleTrivia[2], tourThemes[0], tourThemes[2], tourThemes[3], tourThemes[4], tourThemes[5]], "Teen Idle"), new answer([albumThemes[2], albumSubThemes[3], lyricsTrivia[6], lyricsTrivia[11], lyricsTrivia[12], titleTrivia[3]], "Valley of the Dolls"), new answer([albumThemes[2], lyricsTrivia[12], titleTrivia[1]], "Hypocrates"), new answer([albumThemes[2], songTrivia[1], songTrivia[0], albumSubThemes[4], albumSubThemes[7], lyricsTrivia[8], lyricsTrivia[9], titleTrivia[3], tourThemes[0], tourThemes[2]], "Fear and Loathing"), new answer([albumThemes[2], albumThemes[0], songTrivia[1], albumSubThemes[5], albumSubThemes[7], lyricsTrivia[1], lyricsTrivia[12], titleTrivia[3], tourThemes[2], tourThemes[3], tourThemes[0], tourThemes[4], tourThemes[5]], "How to Be a Heartbreaker"), new answer([albumThemes[2], albumSubThemes[4], albumSubThemes[6], lyricsTrivia[12], titleTrivia[3]], "Lonely Hearts Club"), new answer([albumThemes[2], songTrivia[1], albumSubThemes[5], albumSubThemes[7], lyricsTrivia[7], lyricsTrivia[12], lyricsTrivia[15], titleTrivia[0], titleTrivia[1]], "E.V.O.L."), new answer([albumThemes[2], albumSubThemes[0], albumSubThemes[7], songTrivia[1], titleTrivia[2], tourThemes[2]], "Electra Heart"), new answer([albumThemes[2], songTrivia[5], songTrivia[1], songTrivia[2], unknownAlbumThemes[2], albumSubThemes[6], albumSubThemes[7], lyricsTrivia[1], lyricsTrivia[9], lyricsTrivia[12], titleTrivia[1], tourThemes[2]], "Radioactive"), new answer([albumThemes[2], unknownAlbumThemes[2], lyricsTrivia[2], lyricsTrivia[6], titleTrivia[2]], "Sex Yeah"), new answer([albumThemes[2], songTrivia[0], lyricsTrivia[3], lyricsTrivia[6], lyricsTrivia[8], lyricsTrivia[13], titleTrivia[3]], "Buy the Stars"), new answer([titleTrivia[2]], "Just Desserts"), new answer([albumThemes[2], songTrivia[1], albumSubThemes[3], albumSubThemes[7], songTrivia[3], titleTrivia[0], titleTrivia[1]], "Su-Barbie-A"), new answer([albumThemes[2], albumSubThemes[7], lyricsTrivia[1], lyricsTrivia[12], titleTrivia[2]], "The Archetypes"),
+        new answer([albumThemes[3], albumThemes[0], albumSubThemes[8], songTrivia[2], lyricsTrivia[2], lyricsTrivia[10], titleTrivia[1], tourThemes[0], tourThemes[3], tourThemes[5]], "Happy"), new answer([albumThemes[3], albumThemes[0], albumSubThemes[0], albumSubThemes[8], songTrivia[1], songTrivia[0], songTrivia[2], lyricsTrivia[2], lyricsTrivia[7], lyricsTrivia[12], lyricsTrivia[17], titleTrivia[1], tourThemes[3], tourThemes[4], tourThemes[5]], "Froot"), new answer([albumThemes[3], albumThemes[0], albumSubThemes[8], songTrivia[1], songTrivia[0], songTrivia[2], lyricsTrivia[2], lyricsTrivia[7], lyricsTrivia[12], titleTrivia[0], titleTrivia[3], tourThemes[3], tourThemes[4]], "I'm a Ruin"), new answer([albumThemes[3], albumThemes[0], songTrivia[1], lyricsTrivia[9], lyricsTrivia[12], lyricsTrivia[17], titleTrivia[1], tourThemes[0], tourThemes[3]], "Blue"), new answer([albumThemes[3], albumThemes[0], albumSubThemes[8], songTrivia[1], lyricsTrivia[2], lyricsTrivia[3], lyricsTrivia[12], lyricsTrivia[13], lyricsTrivia[17], titleTrivia[1], tourThemes[3], tourThemes[5]], "Forget"), new answer([albumThemes[3], songTrivia[5], albumSubThemes[8], lyricsTrivia[2], lyricsTrivia[6], lyricsTrivia[12], titleTrivia[1]], "Gold"), new answer([albumThemes[3], songTrivia[3], lyricsTrivia[10], lyricsTrivia[15], titleTrivia[0], titleTrivia[3],  tourThemes[3], tourThemes[5]], "Can't Pin Me Down"), new answer([albumThemes[3], songTrivia[0], lyricsTrivia[0], lyricsTrivia[10], lyricsTrivia[12], lyricsTrivia[16], lyricsTrivia[17], titleTrivia[1]], "Solitaire"), new answer([albumThemes[3], songTrivia[0], lyricsTrivia[3], lyricsTrivia[4], titleTrivia[3]], "Better Than That"), new answer([albumThemes[3], lyricsTrivia[7], lyricsTrivia[12], lyricsTrivia[14], titleTrivia[1]], "Weeds"), new answer([albumThemes[3], songTrivia[3], lyricsTrivia[14], titleTrivia[1], tourThemes[3],  tourThemes[4]], "Savages"), new answer([albumThemes[3], songTrivia[5], albumSubThemes[8], songTrivia[1], songTrivia[0], lyricsTrivia[7], lyricsTrivia[8], lyricsTrivia[12], lyricsTrivia[14], titleTrivia[1], tourThemes[3], tourThemes[4]], "Immortal"), new answer([albumThemes[3], lyricsTrivia[4], lyricsTrivia[12], lyricsTrivia[15], titleTrivia[0], titleTrivia[3], tourThemes[4]], "I'm Not Hungry Anymore"),
+        new answer([albumThemes[4], albumThemes[0], songTrivia[1], albumSubThemes[1], lyricsTrivia[8], lyricsTrivia[13], titleTrivia[2], tourThemes[4], tourThemes[5]], "Handmade Heaven"), new answer([albumThemes[4], albumThemes[0], albumSubThemes[1], songTrivia[2], lyricsTrivia[6], lyricsTrivia[9], lyricsTrivia[12], titleTrivia[1], tourThemes[4]], "Superstar"), new answer([albumThemes[4], albumThemes[0], songTrivia[1], albumSubThemes[1], songTrivia[2], lyricsTrivia[2], lyricsTrivia[4], lyricsTrivia[7], lyricsTrivia[12], titleTrivia[2], tourThemes[4]], "Orange Trees"), new answer([albumThemes[4], songTrivia[1], songTrivia[2], albumSubThemes[1], lyricsTrivia[12], titleTrivia[1], tourThemes[4]], "Baby"), new answer([albumThemes[4], albumSubThemes[1], lyricsTrivia[10], titleTrivia[3], tourThemes[4]], "Enjoy Your Life"), new answer([albumThemes[4], albumSubThemes[1], songTrivia[2], lyricsTrivia[9], lyricsTrivia[10], titleTrivia[1]], "True"), new answer([albumThemes[4], songTrivia[5], songTrivia[1], albumSubThemes[1], songTrivia[3], lyricsTrivia[12], lyricsTrivia[14], lyricsTrivia[16], lyricsTrivia[17], titleTrivia[3], tourThemes[4]], "To Be Human"), new answer([albumThemes[4], albumSubThemes[1], lyricsTrivia[6], lyricsTrivia[12], titleTrivia[3], tourThemes[0], tourThemes[4]], "End of the Earth"), new answer([albumThemes[4], albumSubThemes[2], lyricsTrivia[9], lyricsTrivia[12], titleTrivia[3], tourThemes[4]], "Believe In Love"), new answer([albumThemes[4], albumSubThemes[2], lyricsTrivia[4], lyricsTrivia[6], lyricsTrivia[9], lyricsTrivia[12], titleTrivia[3], tourThemes[4]], "Life Is Strange"), new answer([albumThemes[4], albumSubThemes[2], lyricsTrivia[6], lyricsTrivia[12], titleTrivia[1]], "You"), new answer([albumThemes[4], songTrivia[5], albumSubThemes[2], songTrivia[2], songTrivia[3], lyricsTrivia[1], lyricsTrivia[14], titleTrivia[1], tourThemes[4]], "Karma"), new answer([albumThemes[4], albumSubThemes[2], lyricsTrivia[2], lyricsTrivia[9], lyricsTrivia[12], lyricsTrivia[14], titleTrivia[2], tourThemes[4]], "Emotional Machine"), new answer([albumThemes[4], albumSubThemes[2], lyricsTrivia[10], lyricsTrivia[14], titleTrivia[2]], "Too Afraid"), new answer([albumThemes[4], albumSubThemes[2], songTrivia[2], titleTrivia[3], tourThemes[4]], "No More Suckers"), new answer([albumThemes[4], albumSubThemes[2], lyricsTrivia[9], lyricsTrivia[12], titleTrivia[3], tourThemes[4]], "Soft to Be Strong"),
+        new answer([albumThemes[5], albumThemes[0], albumSubThemes[0], songTrivia[1], lyricsTrivia[6], lyricsTrivia[8], titleTrivia[3], tourThemes[5]], "Ancient Dreams In A Modern Land"), new answer([albumThemes[5], albumThemes[0], songTrivia[1], songTrivia[3], songTrivia[4], lyricsTrivia[7], lyricsTrivia[12], lyricsTrivia[15], titleTrivia[3],  tourThemes[5]], "Venus Fly Trap"), new answer([albumThemes[5], albumThemes[0], songTrivia[1], songTrivia[3], songTrivia[4], lyricsTrivia[6], lyricsTrivia[13], lyricsTrivia[15], lyricsTrivia[16], titleTrivia[0], titleTrivia[2], tourThemes[5]], "Man's World"), new answer([albumThemes[5], albumThemes[0], songTrivia[1], songTrivia[3], songTrivia[4], lyricsTrivia[3], lyricsTrivia[12], lyricsTrivia[15], lyricsTrivia[16], titleTrivia[3], tourThemes[5]], "Purge The Poison"), new answer([albumThemes[5], songTrivia[4], lyricsTrivia[14], titleTrivia[3], tourThemes[5]], "Highly Emotional People"), new answer([albumThemes[5], songTrivia[3], lyricsTrivia[6], lyricsTrivia[14], lyricsTrivia[15], lyricsTrivia[16], lyricsTrivia[17], titleTrivia[2]], "New America"), new answer([albumThemes[5], lyricsTrivia[0], lyricsTrivia[11], lyricsTrivia[12], titleTrivia[0], titleTrivia[2]], "Pandora's Box"), new answer([albumThemes[5], songTrivia[4], lyricsTrivia[12], lyricsTrivia[15], titleTrivia[3], tourThemes[5]], "I Love You But I Love Me More"), new answer([albumThemes[5], lyricsTrivia[7], lyricsTrivia[11], lyricsTrivia[12], titleTrivia[1]], "Flowers"), new answer([albumThemes[5], songTrivia[0], lyricsTrivia[6], lyricsTrivia[11], lyricsTrivia[12], lyricsTrivia[13], lyricsTrivia[15], titleTrivia[1], tourThemes[0], tourThemes[5]], "Goodbye"), new answer([albumThemes[5], albumSubThemes[9], songTrivia[5], songTrivia[1], lyricsTrivia[10], titleTrivia[2]], "Happy Loner"), new answer([albumThemes[5], albumSubThemes[9], lyricsTrivia[9], lyricsTrivia[13], lyricsTrivia[15], titleTrivia[2]], "Pink Convertable"), new answer([albumThemes[5], albumSubThemes[9], lyricsTrivia[2], lyricsTrivia[11], titleTrivia[2]], "Free Woman"),
+        new answer ([albumThemes[6], albumSubThemes[0], lyricsTrivia[2], lyricsTrivia[6], lyricsTrivia[7], lyricsTrivia[12], lyricsTrivia[17], titleTrivia[3]], "PRINCESS OF POWER"), new answer([albumThemes[6], albumThemes[0], songTrivia[1], lyricsTrivia[6], lyricsTrivia[8], lyricsTrivia[12], lyricsTrivia[15], lyricsTrivia[16], lyricsTrivia[17], titleTrivia[1]], "BUTTERFLY"), new answer([albumThemes[6], albumThemes[0], songTrivia[1], lyricsTrivia[0], lyricsTrivia[2], lyricsTrivia[4], lyricsTrivia[6], lyricsTrivia[12], lyricsTrivia[15], titleTrivia[1]], "CUNTISSIMO"), new answer([albumThemes[6], lyricsTrivia[2], lyricsTrivia[6], lyricsTrivia[10], lyricsTrivia[12], titleTrivia[1]], "ROLLERCOASTER"), new answer([albumThemes[6], albumThemes[0], lyricsTrivia[9], lyricsTrivia[12], titleTrivia[0], titleTrivia[2]], "CUPID'S GIRL"), new answer([albumThemes[6], lyricsTrivia[4], lyricsTrivia[6], lyricsTrivia[9], lyricsTrivia[12], titleTrivia[2]], "METALLIC STALLION"), new answer([albumThemes[6], lyricsTrivia[1], lyricsTrivia[12], lyricsTrivia[14], titleTrivia[3]], "JE NE SAIS QUOI"), new answer([albumThemes[6], lyricsTrivia[1], lyricsTrivia[9], lyricsTrivia[12], titleTrivia[2]], "DIGITAL FANTASY"), new answer([albumThemes[6], songTrivia[4], lyricsTrivia[11], lyricsTrivia[12], lyricsTrivia[16], titleTrivia[3]], "EVERYBODY KNOWS IM SAD"), new answer([albumThemes[6], lyricsTrivia[9], titleTrivia[2]], "HELLO KITTY"), new answer([albumThemes[6], lyricsTrivia[0], lyricsTrivia[6], lyricsTrivia[12], lyricsTrivia[17], titleTrivia[3]], "I <3 YOU"), new answer([albumThemes[6], lyricsTrivia[2], lyricsTrivia[4], lyricsTrivia[7], lyricsTrivia[11], lyricsTrivia[12], titleTrivia[2]], "ADULT GIRL"), new answer([albumThemes[6], lyricsTrivia[15], titleTrivia[2]], "FINAL BOSS"), new answer([albumThemes[6], albumSubThemes[9], lyricsTrivia[7], lyricsTrivia[15], titleTrivia[3]], "SEX IS POWER"), new answer([albumThemes[6], albumSubThemes[9], lyricsTrivia[1], lyricsTrivia[12], titleTrivia[3]], "HOW TO SAY GOODBYE"), new answer([albumThemes[6], albumSubThemes[9], lyricsTrivia[12], titleTrivia[3]], "KEY TO THE CASTLE"), new answer([albumThemes[6], albumSubThemes[9], lyricsTrivia[2], lyricsTrivia[3], lyricsTrivia[5], lyricsTrivia[8], lyricsTrivia[12], lyricsTrivia[13], titleTrivia[2]], "UNFAMILIAR HEAVENS"),
+        new answer([unknownAlbumThemes[1]], "Absent Love"), new answer([unknownAlbumThemes[1]], "Bad Kidz"), new answer([unknownAlbumThemes[1]], "Beautiful World"), new answer([unknownAlbumThemes[1]], "Blindfold Me"), new answer([unknownAlbumThemes[1]], "Bump in the Night"), new answer([unknownAlbumThemes[1]], "Cause I'm A Woman"), new answer([unknownAlbumThemes[1]], "China's Dolls"), new answer([unknownAlbumThemes[1]], "Cruel"), new answer([unknownAlbumThemes[1]], "Demons and Angels"), new answer([unknownAlbumThemes[1]], "Diamond Garden"), new answer([unknownAlbumThemes[1], unknownAlbumThemes[2]], "Dirty Sheets"), new answer([unknownAlbumThemes[1]], "Double Life"), new answer([unknownAlbumThemes[1]], "Doubt Your Love"), new answer([unknownAlbumThemes[1]], "Eternity"), new answer([unknownAlbumThemes[1]], "Happy Meal"), new answer([unknownAlbumThemes[1]], "Holiday"), new answer([unknownAlbumThemes[1]], "Hot, Cross Bun"), new answer([unknownAlbumThemes[1]], "Hubba"), new answer([unknownAlbumThemes[1]], "If It's Worth It"), new answer([unknownAlbumThemes[1], unknownAlbumThemes[2]], "Jealusy"), new answer([unknownAlbumThemes[1]], "Like the Other Girls"), new answer([unknownAlbumThemes[1]], "Lonely Bones"), new answer([unknownAlbumThemes[1], unknownAlbumThemes[2]], "Miss Y"), new answer([unknownAlbumThemes[1]], "Not Over You"), new answer([unknownAlbumThemes[1]], "Not That Ugly"), new answer([unknownAlbumThemes[1]], "Pancake Karma"), new answer([unknownAlbumThemes[1]], "Perfect-Oh"), new answer([unknownAlbumThemes[1]], "Philosopher My Arse"), new answer([unknownAlbumThemes[1]], "Please Don't Call Me"), new answer([unknownAlbumThemes[1]], "Porn Is Good for the Soul"), new answer([unknownAlbumThemes[1]], "Samurai"), new answer([unknownAlbumThemes[1], titleTrivia[1]], "Saviour"), new answer([unknownAlbumThemes[1], unknownAlbumThemes[2]], "Scab and Plaster"), new answer([unknownAlbumThemes[1]], "Silver Walls"), new answer([unknownAlbumThemes[1]], "Sinful"), new answer([unknownAlbumThemes[1]], "Starlight"), new answer([unknownAlbumThemes[1]], "Supermodel's Legs"), new answer([unknownAlbumThemes[1]], "The Art of Letting Go"), new answer([unknownAlbumThemes[1]], "The Common Cold"), new answer([unknownAlbumThemes[1]], "There's Nothing Wrong With You"), new answer([unknownAlbumThemes[1]], "This Is L.A."), new answer([unknownAlbumThemes[1]], "Troubled Mind"), new answer([unknownAlbumThemes[1]], "Water Under the Bridge"), new answer([unknownAlbumThemes[1]], "What I Wanna Do"), new answer([unknownAlbumThemes[1]], "When You Take Away Control"), new answer([unknownAlbumThemes[1]], "Where Diamonds Grow"),
+        new answer([unknownAlbumThemes[0], titleTrivia[2]], "Horror Pop"), new answer([unknownAlbumThemes[0], titleTrivia[3]], "Daddy Was a Sailor"), new answer([unknownAlbumThemes[0], titleTrivia[1]], "Simplify"), new answer([unknownAlbumThemes[0], titleTrivia[2]], "Plastic Rainbow")];
+
+        /*
+        TO DO LIST:
+        make themes always unique by deleting them from the copyOfThemes array
+        make answers always unique by deleting them from the copyOfThemes array
+        make sure the theme has 4 answers in the array to avoid bugs
+        display 4 rows of 4 columns with answer values
+        save all themes and answers for later check
+        check if 4 given answers are in the same array (a1/a2/a3/a4)
+        after clicking an answer save the button and value in an array, make sure it has max 4 pressed
+        */
+
+        var t1, t2, t3, t4, a1, a2, a3, a4;
+        var squareColors = ["🟨", "🟩", "🟦", "🟪"];
+        var selectedAnswers = [];
+        var themesGuessed = [];
+        var maxLives = 4;
+        var currentLives;
+        var correctGuesses;
+
+        function selectAnswer(a){
+            if(a.classList.contains("selected")){
+                a.classList.remove("selected");
+                for(var i=0; i<selectedAnswers.length; i++){
+                    if(selectedAnswers[i] == a){
+                        selectedAnswers.splice(i, 1);
+                        return;
+                    }
+                }
+            }else if(selectedAnswers.length < 4){
+                a.classList.add("selected");
+                selectedAnswers = selectedAnswers.concat(a);
+            }
+        }
+
+        function resetSelection(){
+            for(var i=0; i<selectedAnswers.length; i++){
+                selectedAnswers[i].classList.remove("selected");
+            }
+            selectedAnswers.splice(0, selectedAnswers.length);
+        }
+
+        function submitAnswers(){
+            var allAnswers = [a1, a2, a3, a4];
+            var allThemes = [t1, t2, t3, t4];
+            if(selectedAnswers.length == 4){
+                var squares = [];
+                for(var i=0; i<4; i++){
+                    var correctCounter = 0;
+                    var correctAnswers = [];
+                    for(var j=0; j<4; j++){
+                        for(var k=0; k<4; k++){
+                            if(selectedAnswers[k].innerText == allAnswers[i][j].value){
+                                correctCounter++;
+                                correctAnswers[j] = selectedAnswers[k];
+                                squares[squares.length] = squareColors[i];
+                            }
+                        }
+                    }
+                    if(correctCounter == 4){
+                        for(var j=0; j<4; j++){
+                            correctAnswers[j].style.display = "none";
+                            selectedAnswers = [];
+                        }
+                        themesGuessed[themesGuessed.length] = allThemes[i];
+                        var correctDiv = document.getElementById("correct");
+                        correctDiv.innerHTML += "<div><div>" + allThemes[i].theme + "</div><div>" + "<div>"+allAnswers[i][0].value+"</div>" + "<div>"+allAnswers[i][1].value+"</div>" + "<div>"+allAnswers[i][2].value+"</div>" + "<div>"+allAnswers[i][3].value+"</div>" + "</div></div>";
+                        document.getElementById("gameAnswerList").innerHTML += "<div>" + squares.join(" ") + "</div>";
+                        correctGuesses++;
+                        if(correctGuesses == 4){
+                            document.getElementById("gameResult").innerText = "YOU WON!";
+                            document.getElementById("gameFinished").style.display = "flex";
+                            document.getElementById("items").innerHTML = "";
+                            document.getElementById("buttons").style.display = "none";
+                            resetSelection();
+                        }
+                        return;
+                    }else if(correctCounter == 3){
+                        document.getElementById("oneAway").style.display = "inline";
+                        setTimeout(() => {
+                            document.getElementById("oneAway").style.display = "none";
+                        }, 2500);
+                    }
+                }
+                document.getElementById("gameAnswerList").innerHTML += "<div>" + squares.join(" ") + "</div>";
+                currentLives--;
+                document.getElementById("hearts").innerText = "";
+                for(var i=0; i<currentLives; i++){
+                    document.getElementById("hearts").innerText += "♥";
+                }
+                if(currentLives == 0){
+                    document.getElementById("items").innerHTML = "";
+                    var correctDiv = document.getElementById("correct");
+                    var unguessedThemes = [];
+                    var unguessedAnswers = [];
+                    for(var i=0; i<4; i++){
+                        var guessed = false;
+                        for(var j=0; j<themesGuessed.length; j++){
+                            if(allThemes[i] == themesGuessed[j]){
+                                guessed = true;
+                            }
+                        }
+                        if(!guessed){
+                            unguessedThemes[unguessedThemes.length] = allThemes[i];
+                            unguessedAnswers[unguessedAnswers.length] = allAnswers[i];
+                        }
+                    }
+                    for(var i=0; i<unguessedThemes.length; i++){
+                        correctDiv.innerHTML += "<div><div>" + unguessedThemes[i].theme + "</div><div>" + "<div>"+unguessedAnswers[i][0].value+"</div>" + "<div>"+unguessedAnswers[i][1].value+"</div>" + "<div>"+unguessedAnswers[i][2].value+"</div>" + "<div>"+unguessedAnswers[i][3].value+"</div>" + "</div></div>";
+                    }
+                    document.getElementById("gameResult").innerText = "YOU LOST!";
+                    document.getElementById("gameFinished").style.display = "flex";
+                    document.getElementById("buttons").style.display = "none";
+                    resetSelection();
+                }
+            }
+        }
+
+        function hideGameFinished(){
+            document.getElementById("gameFinished").style.display = "none";
+            document.getElementById("newGame").style.display = "inline";
+        }
+
+        function showItems(){
+            var itemsDiv = document.getElementById("items");
+            var a = [];
+            a = a.concat(a1, a2, a3, a4);
+            for(var i=0; i<16; i++){
+                var r = Math.floor(Math.random() * a.length);
+                itemsDiv.innerHTML += "<div onclick='selectAnswer(this)'><div>"+a[r].value+"</div></div>";
+                a.splice(r, 1);
+            }
+        }
+
+        //when page is loaded randomize 4 themes with 4 answers
+        function start(){
+
+            themesGuessed.splice(0, themesGuessed.length);
+            document.getElementById("buttons").style.display = "flex";
+            document.getElementById("newGame").style.display = "none";
+            document.getElementById("correct").innerHTML = "";
+            document.getElementById("gameAnswerList").innerHTML = "";
+            correctGuesses = 0;
+            currentLives = maxLives;
+            document.getElementById("hearts").innerText = "";
+            for(var i=0; i<currentLives; i++){
+                document.getElementById("hearts").innerText += "♥";
+            }
+            //create copies of arrays
+            var copyOfThemes = [];
+            copyOfThemes = copyOfThemes.concat(albumThemes, albumSubThemes, tourThemes, unknownAlbumThemes, songTrivia, lyricsTrivia, titleTrivia);
+            var copyOfAnswers = [];
+            var copyOfAnswers = copyOfAnswers.concat(answers);
+            //get the divs
+            var itemsDiv = document.getElementById("items");
+            itemsDiv.innerHTML = "";
+
+            //t1 - first theme, selected randomly
+            t1;
+            var t1Id;
+            //idOfT1Answers - ids of answers that have the same theme as t1 to later delete them from the copyOfAnswers array
+            var idOfT1Answers;
+            var t1Answers;
+            var idCounter;
+            //checks if there are at least 4 answers for the theme
+            do{
+                idOfT1Answers = [];
+                t1Answers = [];
+                idCounter = 0;
+                //t1 - first theme, selected randomly
+                do{
+                    var randomDif = Math.floor(Math.random() * 100);
+                    if(randomDif <= 30){
+                        var dif = 2;
+                    }else{
+                        var dif = 1;
+                    }
+                    var r = Math.floor(Math.random() * copyOfThemes.length)
+                    t1 = copyOfThemes[r];
+                    t1Id = r;
+                }while(t1.difficulty != dif);
+                //finding answers with the same theme
+                for(var i=0; i<copyOfAnswers.length; i++){
+                    for(var j=0; j<copyOfAnswers[i].matchingThemes.length; j++){
+                        if(copyOfAnswers[i].matchingThemes[j] == t1){
+                            idOfT1Answers[idCounter] = i;
+                            t1Answers[idCounter] = copyOfAnswers[i];
+                            idCounter++;
+                        }
+                    }
+                }
+            }while(idCounter <= 3);
+            copyOfThemes.splice(r, 1);
+            //a1 - answers for the first theme, 4 random answers from t1Answers array
+            a1 = [];
+            for(var i=0; i<4; i++){
+                var r = Math.floor(Math.random() * t1Answers.length);
+                a1[i] = t1Answers[r];
+                copyOfAnswers.splice(idOfT1Answers[r], 1);
+                for(var j=0; j<idOfT1Answers.length; j++){
+                    if(idOfT1Answers[j] > idOfT1Answers[r]){
+                        idOfT1Answers[j]--;
+                    }
+                }
+                t1Answers.splice(r, 1);
+                idOfT1Answers.splice(r, 1);
+            }
+            for(var i=0; i<idOfT1Answers.length; i++){
+                copyOfAnswers.splice(idOfT1Answers[i], 1);
+                for(var j=i; j<idOfT1Answers.length; j++){
+                    if(idOfT1Answers[j] > idOfT1Answers[i]){
+                        idOfT1Answers[j]--;
+                    }
+                }
+            }
+
+//*********************************************************************************************************
+
+            //t2 - second theme, selected randomly
+            t2;
+            var t2Id;
+            //idOfT2Answers - ids of answers that have the same theme as t2 to later delete them from the copyOfAnswers array
+            var idOfT2Answers;
+            var t2Answers;
+            var idCounter;
+            //checks if there are at least 4 answers for the theme
+            do{
+                idOfT2Answers = [];
+                t2Answers = [];
+                idCounter = 0;
+                //t2 - second theme, selected randomly
+                do{
+                    var randomDif = Math.floor(Math.random() * 100);
+                    if(randomDif <= 30){
+                        var dif = 3;
+                    }else if(randomDif <= 80){
+                        var dif = 2;
+                    }else{
+                        var dif = 1;
+                    }
+                    var r = Math.floor(Math.random() * copyOfThemes.length)
+                    t2 = copyOfThemes[r];
+                    t2Id = r;
+                }while(t2.difficulty != dif);
+                //finding answers with the same theme
+                for(var i=0; i<copyOfAnswers.length; i++){
+                    for(var j=0; j<copyOfAnswers[i].matchingThemes.length; j++){
+                        if(copyOfAnswers[i].matchingThemes[j] == t2){
+                            idOfT2Answers[idCounter] = i;
+                            t2Answers[idCounter] = copyOfAnswers[i];
+                            idCounter++;
+                        }
+                    }
+                }
+            }while(idCounter <= 3);
+            copyOfThemes.splice(r, 1);
+            //a2 - answers for the second theme, 4 random answers from t2Answers array
+            a2 = [];
+            for(var i=0; i<4; i++){
+                var r = Math.floor(Math.random() * t2Answers.length);
+                a2[i] = t2Answers[r];
+                copyOfAnswers.splice(idOfT2Answers[r], 1);
+                for(var j=0; j<idOfT2Answers.length; j++){
+                    if(idOfT2Answers[j] > idOfT2Answers[r]){
+                        idOfT2Answers[j]--;
+                    }
+                }
+                t2Answers.splice(r, 1);
+                idOfT2Answers.splice(r, 1);
+            }
+            for(var i=0; i<idOfT2Answers.length; i++){
+                copyOfAnswers.splice(idOfT2Answers[i], 1);
+                for(var j=i; j<idOfT2Answers.length; j++){
+                    if(idOfT2Answers[j] > idOfT2Answers[i]){
+                        idOfT2Answers[j]--;
+                    }
+                }
+            }
+
+//*********************************************************************************************************
+
+            //t3 - third theme, selected randomly
+            t3;
+            var t3Id;
+            //idOfT3Answers - ids of answers that have the same theme as t3 to later delete them from the copyOfAnswers array
+            var idOfT3Answers;
+            var t3Answers;
+            var idCounter;
+            //checks if there are at least 4 answers for the theme
+            do{
+                idOfT3Answers = [];
+                t3Answers = [];
+                idCounter = 0;
+                //t3 - third theme, selected randomly
+                do{
+                    var randomDif = Math.floor(Math.random() * 100);
+                    if(randomDif <= 20){
+                        var dif = 4;
+                    }else if(randomDif <= 80){
+                        var dif = 3;
+                    }else{
+                        var dif = 2;
+                    }
+                    var r = Math.floor(Math.random() * copyOfThemes.length)
+                    t3 = copyOfThemes[r];
+                    t3Id = r;
+                }while(t3.difficulty != dif);
+                //finding answers with the same theme
+                for(var i=0; i<copyOfAnswers.length; i++){
+                    for(var j=0; j<copyOfAnswers[i].matchingThemes.length; j++){
+                        if(copyOfAnswers[i].matchingThemes[j] == t3){
+                            idOfT3Answers[idCounter] = i;
+                            t3Answers[idCounter] = copyOfAnswers[i];
+                            idCounter++;
+                        }
+                    }
+                }
+            }while(idCounter <= 3);
+            copyOfThemes.splice(r, 1);
+            //a3 - answers for the third theme, 4 random answers from t3Answers array
+            a3 = [];
+            for(var i=0; i<4; i++){
+                var r = Math.floor(Math.random() * t3Answers.length);
+                a3[i] = t3Answers[r];
+                copyOfAnswers.splice(idOfT3Answers[r], 1);
+                for(var j=0; j<idOfT3Answers.length; j++){
+                    if(idOfT3Answers[j] > idOfT3Answers[r]){
+                        idOfT3Answers[j]--;
+                    }
+                }
+                t3Answers.splice(r, 1);
+                idOfT3Answers.splice(r, 1);
+            }
+            for(var i=0; i<idOfT3Answers.length; i++){
+                copyOfAnswers.splice(idOfT3Answers[i], 1);
+                for(var j=i; j<idOfT3Answers.length; j++){
+                    if(idOfT3Answers[j] > idOfT3Answers[i]){
+                        idOfT3Answers[j]--;
+                    }
+                }
+            }
+
+//*********************************************************************************************************
+
+            //t4 - fourth theme, selected randomly
+            t4;
+            var t4Id;
+            //idOfT4Answers - ids of answers that have the same theme as t4 to later delete them from the copyOfAnswers array
+            var idOfT4Answers;
+            var t4Answers;
+            var idCounter;
+            //checks if there are at least 4 answers for the theme
+            do{
+                idOfT4Answers = [];
+                t4Answers = [];
+                idCounter = 0;
+                //t4 - fourth theme, selected randomly
+                do{
+                    var randomDif = Math.floor(Math.random() * 100);
+                    if(randomDif <= 30){
+                        var dif = 5;
+                    }else if(randomDif <= 80){
+                        var dif = 4;
+                    }else{
+                        var dif = 3;
+                    }
+                    var r = Math.floor(Math.random() * copyOfThemes.length)
+                    t4 = copyOfThemes[r];
+                    t4Id = r;
+                }while(t4.difficulty != dif);
+                //finding answers with the same theme
+                for(var i=0; i<copyOfAnswers.length; i++){
+                    for(var j=0; j<copyOfAnswers[i].matchingThemes.length; j++){
+                        if(copyOfAnswers[i].matchingThemes[j] == t4){
+                            idOfT4Answers[idCounter] = i;
+                            t4Answers[idCounter] = copyOfAnswers[i];
+                            idCounter++;
+                        }
+                    }
+                }
+            }while(idCounter <= 3);
+            copyOfThemes.splice(r, 1);
+            //a4 - answers for the second theme, 4 random answers from t4Answers array
+            a4 = [];
+            for(var i=0; i<4; i++){
+                var r = Math.floor(Math.random() * t4Answers.length);
+                a4[i] = t4Answers[r];
+                copyOfAnswers.splice(idOfT4Answers[r], 1);
+                for(var j=0; j<idOfT4Answers.length; j++){
+                    if(idOfT4Answers[j] > idOfT4Answers[r]){
+                        idOfT4Answers[j]--;
+                    }
+                }
+                t4Answers.splice(r, 1);
+                idOfT4Answers.splice(r, 1);
+            }
+            for(var i=0; i<idOfT4Answers.length; i++){
+                copyOfAnswers.splice(idOfT4Answers[i], 1);
+                for(var j=i; j<idOfT4Answers.length; j++){
+                    if(idOfT4Answers[j] > idOfT4Answers[i]){
+                        idOfT4Answers[j]--;
+                    }
+                }
+            }
+            showItems();
+        }
+    </script>
+</head>
+<body onload="pageLoaded()" id="thefamilyjewelsStyle">
+    <div id="menuBar">
+        <div><a href="index.html">HOME</a></div>
+        <div>DIAMONDLE</div>
+        <div id="styleSelect">
+            STYLE
+            <select id="styleOptions" onchange="selectStyle()"><option value="mvs">Mermaid vs Sailor</option><option value="tfj">The Family Jewels</option><option value="eh">Electra Heart</option><option value="f">FROOT</option><option value="lf">Love + Fear</option><option value="adiaml">Ancient Dreams In A Modern Land</option><option value="pop">PRINCESS OF POWER</option></select>
+        </div>
+    </div>
+    <div id="GAME">
+        <div id="oneAway">ONE AWAY!</div>
+        <div id="gameFinished">
+            <div id="gameResult"></div>
+            <div id="gameAnswerList"></div>
+            <button onclick="hideGameFinished()">CLOSE</button>
+        </div>
+        <div id="correct">
+        </div>
+        <div id="items">
+        </div>
+        <div id="UI">
+            <div id="buttons">
+                <button onclick="submitAnswers()">SUBMIT</button>
+                <button onclick="resetSelection()">DESELECT</button>
+            </div>
+            <div id="hearts"></div>
+            <button id="newGame" onclick="start()">NEW GAME</button>
+        </div>
+    </div>
+    <div id="howToPlay">
+        <h1>How to play</h1>
+        <h3>Find groups of four songs that share something in common</h3>
+        <p>Select four songs and click SUBMIT to check if your guess is correct</p>
+        <p>Find the groups without making 4 mistakes!</p>
+        <p>Each puzzle has one solution. Watch out for songs that seem to belong to multiple categories.</p>
+        <h3>Group examples</h3>
+        <p>Electra Heart tracks: E.V.O.L, Living Dead, Teen Idle, Primadonna</p>
+        <p>Songs with curse words: Bubblegum Bitch, CUNTISSIMO, Goodbye, Man's World</p>
+    </div>
+    <div id="footer">
+        <div>MADE BY SZYMANDUS</div>
+    </div>
+</body>
+</html>
